@@ -2,6 +2,29 @@
 
 This directory contains the necessary files to build and run a PocketBase server in a Docker container.
 
+## Backing Up PocketBase Data
+
+To backup PocketBase data from a remote server, use the provided backup script:
+
+```bash
+./backup-pocketbase-data.sh
+```
+
+By default, the script will backup data from `root@angelator312.top:/pb_data/*` to the local `pb_data` directory.
+
+You can customize the backup process by setting the following environment variables:
+
+- `REMOTE_HOST`: The hostname of the remote server (default: angelator312.top)
+- `REMOTE_USER`: The username to use for SSH connection (default: root)
+- `REMOTE_PATH`: The path to the PocketBase data on the remote server (default: /pb_data/)
+- `LOCAL_PATH`: The local path to store the backup (default: ./pb_data)
+
+Example:
+
+```bash
+REMOTE_HOST=myserver.com REMOTE_USER=admin ./backup-pocketbase-data.sh
+```
+
 ## Building the Docker Image
 
 To build the Docker image, run the following command from this directory:
