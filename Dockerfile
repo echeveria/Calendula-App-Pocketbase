@@ -10,8 +10,8 @@ FROM debian:stable-slim
 WORKDIR /pocketbase
 COPY --from=pocket-base /pb/pocketbase .
 RUN chmod +x ./pocketbase
-COPY ./pb_migrations pb_migrations
+COPY ./pocketbase/pb_migrations pb_migrations
 COPY setup-and-start-pocketbase.sh .
-VOLUME /pb_data
+VOLUME /pocketbase/pb_data
 EXPOSE 8090
-CMD ["/setup-and-start-pocketbase.sh"]
+CMD ["/app/setup-and-start-pocketbase.sh"]
