@@ -19,4 +19,4 @@ COPY setup-and-start-pocketbase.sh .
 RUN chmod +x ./setup-and-start-pocketbase.sh
 VOLUME /pb_data
 EXPOSE 8090
-CMD ["/bin/sh", "./setup-and-start-pocketbase.sh"]
+CMD ["/pocketbase/setup-and-start-pocketbase.sh"]
