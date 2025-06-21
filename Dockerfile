@@ -14,4 +14,4 @@ COPY ./pb_migrations pb_migrations
 COPY setup-and-start-pocketbase.sh .
 VOLUME /pb_data
 EXPOSE 8090
-CMD ["/pocketbase/setup-and-start-pocketbase.sh"]
+CMD ["/setup-and-start-pocketbase.sh"]
