@@ -7,7 +7,7 @@ RUN curl -LO https://github.com/pocketbase/pocketbase/releases/download/v0.25.8/
 
 # Stage 3: Build runtime image
 FROM debian:stable-slim
-WORKDIR /app
+WORKDIR /pocketbase
 COPY --from=pocket-base /pb/pocketbase .
 RUN chmod +x ./pocketbase
 COPY ./pocketbase/pb_migrations pb_migrations
