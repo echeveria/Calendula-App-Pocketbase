@@ -4,7 +4,6 @@ WORKDIR /pb
 RUN apt-get update && apt-get install -y curl unzip
 RUN curl -LO https://github.com/pocketbase/pocketbase/releases/download/v0.25.8/pocketbase_0.25.8_linux_amd64.zip && unzip *.zip
 
-
 # Stage 3: Build runtime image
 FROM debian:stable-slim
 WORKDIR /pocketbase
