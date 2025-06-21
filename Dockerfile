@@ -12,6 +12,6 @@ COPY --from=pocket-base /pb/pocketbase .
 RUN chmod +x ./pocketbase
 COPY ./pocketbase/pb_migrations pb_migrations
 COPY setup-and-start-pocketbase.sh .
-VOLUME /app/pb_data
+VOLUME /pocketbase/pb_data
 EXPOSE 8090
-CMD ["/app/setup-and-start-pocketbase.sh"]
+CMD ["/pocketbase/setup-and-start-pocketbase.sh"]
