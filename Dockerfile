@@ -8,12 +8,12 @@ RUN curl -LO https://github.com/pocketbase/pocketbase/releases/download/v0.25.8/
 
 # Stage 3: Build runtime image
 FROM debian:stable-slim
-WORKDIR /pocketbase
+WORKDIR /opt/pocketbase
 COPY --from=pocket-base /pb/pocketbase .
 RUN chmod +x ./pocketbase
 COPY ./pb_migrations pb_migrations
 COPY setup-and-start-pocketbase.sh .
 RUN chmod +x ./setup-and-start-pocketbase.sh
-VOLUME /pb_data
+VOLUME /opt/pocketbase/pb_data
 EXPOSE 8090
 CMD ["./setup-and-start-pocketbase.sh"]

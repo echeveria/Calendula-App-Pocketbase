@@ -1,18 +1,18 @@
 #!/bin/bash
 set -euo pipefail
 
-# This script backs up PocketBase data from a remote server to the local pb_data directory
+# This script uploads PocketBase data from the local pb_data directory to a remote server
 
 # Set default values for variables
 REMOTE_HOST=${REMOTE_HOST:-"161.97.86.243"}
 REMOTE_USER=${REMOTE_USER:-"root"}
-REMOTE_PATH=${REMOTE_PATH:-"/var/lib/docker/volumes/e32164c738f071aa58e5f8cf29aa65c66ce358472d27ff06b690db24bc77b07d/_data/"}
-LOCAL_PATH=${LOCAL_PATH:-"$(dirname "$0")/pb_data/"}
+REMOTE_PATH=${REMOTE_PATH:-"/opt/pocketbase/pb_data"}
+LOCAL_PATH=${LOCAL_PATH:-"$(dirname "$0")/pb_data"}
 
-echo "Backing up PocketBase data from ${REMOTE_USER}@${REMOTE_HOST}:${REMOTE_PATH} to ${LOCAL_PATH}"
+echo "📤 Uploading PocketBase data from ${LOCAL_PATH} to ${REMOTE_USER}@${REMOTE_HOST}:${REMOTE_PATH}"
 mkdir -p "${LOCAL_PATH}"
 
-# Perform the backup using rsync
-rsync -avz "${LOCAL_PATH}" "${REMOTE_USER}@${REMOTE_HOST}:${REMOTE_PATH}"
+# Perform the upload using rsync (local -> remote)
+rsync -avz "${LOCAL_PATH}/" "${REMOTE_USER}@${REMOTE_HOST}:${REMOTE_PATH}/"
 
-echo "✅ Backup completed successfully!"
+echo "✅ Upload completed successfully!"
