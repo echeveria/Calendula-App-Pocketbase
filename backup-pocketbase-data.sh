@@ -13,6 +13,6 @@ echo "📤 Uploading PocketBase data from ${LOCAL_PATH} to ${REMOTE_USER}@${REMO
 mkdir -p "${LOCAL_PATH}"
 
 # Perform the upload using rsync (local -> remote)
-rsync -avz "${LOCAL_PATH}/" "${REMOTE_USER}@${REMOTE_HOST}:${REMOTE_PATH}/"
+rsync -avz "${LOCAL_PATH}/" "${REMOTE_USER}@${REMOTE_HOST}:${REMOTE_PATH}"
 
 echo "✅ Upload completed successfully!"
